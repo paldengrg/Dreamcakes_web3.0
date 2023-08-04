@@ -1,5 +1,4 @@
 package com.sheryians.major.model;
-
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,8 +14,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotEmpty
-    @Column(nullable = false)
+@NotEmpty
+@Column(nullable = false)
     private String firstName;
     private String lastName;
 

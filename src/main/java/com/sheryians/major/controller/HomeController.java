@@ -1,5 +1,6 @@
 package com.sheryians.major.controller;
 
+import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.service.CategoryService;
 import com.sheryians.major.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +17,33 @@ public class HomeController {
     ProductService productService;
 
     @GetMapping({"/","/home"})
+
     public String home(Model model){
+        model.addAttribute("cardCount", GlobalData.cart.size());
         return "index";
     }
     @GetMapping({"/shop"})
     public String shop(Model model){
         model.addAttribute("categories",categoryService.getAllCategory());
         model.addAttribute("products",productService.getAllProduct());
+        model.addAttribute("cardCount",GlobalData.cart.size());
+
         return "shop";
     }
     @GetMapping({"/shop/category/{id}"})
     public String shopByCategory(Model model, @PathVariable int id){
         model.addAttribute("categories",categoryService.getAllCategory());
+        model.addAttribute("cardCount",GlobalData.cart.size());
         model.addAttribute("products",productService.getAllProductsByCategoryId(id));
         return "shop";
     }
     @GetMapping({"/shop/viewproduct/{id}"})
     public String viewProduct(Model model, @PathVariable int id){
         model.addAttribute("product",productService.getProductById(id).get());
+        model.addAttribute("cardCount",GlobalData.cart.size());
         return "viewProduct";
     }
+
 
 
 }

@@ -8,9 +8,11 @@ import java.util.List;
 
 @Data
 @Entity
+
 @Table(name = "roles")
 public class Role {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(nullable = false,unique = true)
