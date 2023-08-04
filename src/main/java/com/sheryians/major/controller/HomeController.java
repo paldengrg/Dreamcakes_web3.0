@@ -17,10 +17,8 @@ public class HomeController {
     ProductService productService;
 
     @GetMapping({"/","/home"})
-
-    public String home(Model model){
-        model.addAttribute("cardCount", GlobalData.cart.size());
-        return "index";
+    public String displayHomePage() {
+        return "/home_page";
     }
     @GetMapping({"/shop"})
     public String shop(Model model){
@@ -43,6 +41,10 @@ public class HomeController {
         model.addAttribute("cardCount",GlobalData.cart.size());
         return "viewProduct";
     }
+//    @GetMapping({"homepage/home_page"})
+//    public String displayHomePage() {
+//        return "/home_page";
+//    }
 
 
 
