@@ -41,11 +41,4 @@ public class HomeController {
         model.addAttribute("cardCount",GlobalData.cart.size());
         return "viewProduct";
     }
-//    @GetMapping({"homepage/home_page"})
-//    public String displayHomePage() {
-//        return "/home_page";
-//    }
-
-
-
 }

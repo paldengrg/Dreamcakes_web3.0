@@ -20,4 +20,7 @@ public class Product {
     private String imageName;
 
 
+    public static AssociationOverride builder() {
+        return null;
+    }
 }
